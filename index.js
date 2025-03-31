@@ -134,7 +134,13 @@ const products = [
   }
 ];
 
-let cart = [];
+// Initialize cart from localStorage or empty array if none exists
+let cart = JSON.parse(localStorage.getItem('emeraldBakeryCart') || '[]');
+
+// Update cart display immediately on page load
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartDisplay();
+});
 
 const productsGrid = document.getElementById('products-grid');
 const cartCount = document.getElementById('cart-count');
@@ -291,6 +297,9 @@ function addToCart(product, quantity, flavor = '') {
 }
 
 function updateCartDisplay() {
+  // Save cart to localStorage
+  localStorage.setItem('emeraldBakeryCart', JSON.stringify(cart));
+
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   cartCount.textContent = totalItems;
   
