@@ -144,9 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const productsGrid = document.getElementById('products-grid');
 const cartCount = document.getElementById('cart-count');
+const mobileCartCount = document.getElementById('mobile-cart-count');
 const cartItems = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
 const viewCartBtn = document.getElementById('view-cart-btn');
+const mobileViewCartBtn = document.getElementById('mobile-view-cart-btn');
 const closeCartBtn = document.getElementById('close-cart-btn');
 const cartModal = document.getElementById('cart-modal');
 const checkoutForm = document.getElementById('checkout-form');
@@ -302,6 +304,7 @@ function updateCartDisplay() {
 
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   cartCount.textContent = totalItems;
+  if (mobileCartCount) mobileCartCount.textContent = totalItems;
   
   cartItems.innerHTML = '';
   
@@ -425,6 +428,13 @@ function getJotformProductId(id) {
 viewCartBtn.addEventListener('click', () => {
   cartModal.classList.remove('hidden');
 });
+
+if (mobileViewCartBtn) {
+  mobileViewCartBtn.addEventListener('click', () => {
+    cartModal.classList.remove('hidden');
+    mobileMenu.classList.remove('open');
+  });
+}
 
 closeCartBtn.addEventListener('click', () => {
   cartModal.classList.add('hidden');

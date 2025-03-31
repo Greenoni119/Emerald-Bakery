@@ -71,7 +71,7 @@
         </div>
         
         
-        <nav class="hidden md:block">
+        <nav class="hidden xl:block ">
           <ul class="flex items-center gap-6 text-lg font-medium">
             <li><a class="text-green-700 hover:text-green-900 nav-link" href="index.html">Home</a></li>
             <li><a class="text-green-700 hover:text-green-900 nav-link" href="index.html#about">About</a></li>
@@ -88,7 +88,7 @@
         </nav>
         
         
-        <button id="mobile-menu-button" class="md:hidden text-green-800 focus:outline-none">
+        <button id="mobile-menu-button" class="xl:hidden text-green-800 focus:outline-none">
           <i class="fa-solid fa-bars text-2xl"></i>
         </button>
       </div>
@@ -537,6 +537,8 @@
       const cart = JSON.parse(localStorage.getItem('emeraldBakeryCart') || '[]');
       const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
       cartCount.textContent = totalItems;
+      const mobileCartCount = document.getElementById('mobile-cart-count');
+      if (mobileCartCount) mobileCartCount.textContent = totalItems;
 
       if (cartItems) {
         cartItems.innerHTML = '';
@@ -622,6 +624,15 @@
     viewCartBtn.addEventListener('click', () => {
       cartModal.classList.remove('hidden');
     });
+
+    // Mobile cart button handler
+    const mobileViewCartBtn = document.getElementById('mobile-view-cart-btn');
+    if (mobileViewCartBtn) {
+      mobileViewCartBtn.addEventListener('click', () => {
+        cartModal.classList.remove('hidden');
+        mobileMenu.classList.remove('open');
+      });
+    }
 
     closeCartBtn.addEventListener('click', () => {
       cartModal.classList.add('hidden');
