@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Products - Emerald Bakery</title>
+    <meta name="description" content="Browse our selection of custom cookies, cupcakes, cakes, scones, and more at Emerald Bakery." />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+        scroll-behavior: smooth;
+      }
+      .heading {
+        font-family: 'Playfair Display', serif;
+      }
+      .product-card {
+        transition: all 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #166534;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .mobile-menu {
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+      }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+      .tab-button {
+        transition: all 0.3s ease;
+      }
+      .tab-button.active {
+        background-color: #166534;
+        color: white;
+      }
+    </style>
+  </head>
+  
+<body class="overflow-x-hidden bg-emerald-50">
+  <div class="min-h-screen flex flex-col">
+    
+    <header class="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+          <img alt="Emerald Bakery Logo" width="50" height="50" src="images/download-3.webp" class="w-12 h-12 md:w-14 md:h-14 object-contain" />
+          <h1 class="ml-3 text-xl md:text-3xl text-green-800 font-bold heading">EMERALD BAKERY</h1>
+        </div>
+        
+        
+        <nav class="hidden md:block">
+          <ul class="flex gap-8 text-lg font-medium">
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="index.html">Home</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="index.html#about">About</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="index.html#specialties">Specialties</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link active" href="products.html">Products</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="index.html#order">Order</a></li>
+          </ul>
+        </nav>
+        
+        
+        <button id="mobile-menu-button" class="md:hidden text-green-800 focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      
+      <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-3/4 bg-white shadow-lg z-50 p-6">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex items-center">
+            <img alt="Emerald Bakery Logo" width="40" height="40" src="images/download-3.webp" class="w-10 h-10 object-contain" />
+            <h2 class="ml-2 text-lg text-green-800 font-bold heading">EMERALD BAKERY</h2>
+          </div>
+          <button id="close-menu-button" class="text-green-800 focus:outline-none">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+          </button>
+        </div>
+        <nav>
+          <ul class="flex flex-col gap-6 text-lg font-medium">
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="index.html">Home</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="index.html#about">About</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="index.html#specialties">Specialties</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2 font-bold" href="products.html">Products</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="index.html#order">Order</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      
+      <section class="bg-emerald-700 py-20 text-center" >
+        <div class="container mx-auto px-6">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 heading text-green-800">Our Products</h1>
+          <p class="text-lg md:text-xl max-w-3xl mx-auto text-black">Browse our selection of freshly baked custom cookies, scones, cupcakes, and cakes. All products are made to order with the finest ingredients.</p>
+        </div>
+      </section>
+
+      
+      <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+          
+          <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+            <button class="tab-button active px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="all">All Products</button>
+            <button class="tab-button px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="cookies">Cookies</button>
+            <button class="tab-button px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="scones">Scones</button>
+            <button class="tab-button px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="cupcakes">Cupcakes</button>
+            <button class="tab-button px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="cakes">Cakes</button>
+          </div>
+
+          
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cookies">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-3.webp" alt="Mini Custom Decorated Sugar Cookies" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Mini Custom Decorated Sugar Cookies (2 inch)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Custom designs available for any theme. Price may vary depending on design complexity.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$42.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cookies">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-4.webp" alt="Regular-Size Custom Decorated Sugar Cookies" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Regular-Size Custom Decorated Sugar Cookies (3-4 inch)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Custom designs available for any theme. Price may vary depending on design complexity.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$48.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cookies">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download.webp" alt="Smores Stuffed Chocolate Chip Cookies" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Smores Stuffed Chocolate Chip Cookies</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Made with honey graham crackers, marshmallows, and chocolate. A decadent treat that's perfect for any occasion.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$40.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="scones">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-1.webp" alt="Cranberry-Orange Scone" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Cranberry-Orange Scone (Regular Size)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Our signature scones made with cranberries and fresh orange peel. Perfect for breakfast or afternoon tea.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$40.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="scones">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-1.webp" alt="Cranberry-Orange Scookie" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Cranberry-Orange "Scookie" (Cookie Sized Scone)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">A smaller version of our popular Cranberry-Orange Scone, perfect for parties and events.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$20.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cupcakes">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-2.webp" alt="Mini Cupcakes (Standard Flavors)" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Mini Cupcakes (Standard Flavors)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Available in classic flavors: Vanilla/Vanilla, Vanilla/Chocolate, Chocolate/Vanilla, Chocolate/Chocolate.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$25.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cupcakes">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-2.webp" alt="Mini Cupcakes (Custom Flavors)" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Mini Cupcakes (Custom Flavors)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Specialty flavors like Confetti, Chocolate-Raspberry, Dulce de Leche, Red Velvet, and more.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$30.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cupcakes">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-2.webp" alt="Cupcakes (Standard Flavors)" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Cupcakes (Standard Flavors)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Regular-sized cupcakes in classic flavors: Vanilla/Vanilla, Vanilla/Chocolate, Chocolate/Vanilla, Chocolate/Chocolate.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$45.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cupcakes">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-2.webp" alt="Cupcakes (Custom Flavors)" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Cupcakes (Custom Flavors)</h3>
+                <p class="text-gray-600 mb-2">Sold by the dozen</p>
+                <p class="text-gray-700 mb-4">Regular-sized cupcakes in specialty flavors like Confetti, Chocolate-Raspberry, Dulce de Leche, Red Velvet, and more.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$50.00/dozen</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cakes">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-2.webp" alt="9&quot; Frosted 2-Layer Cake (Standard)" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">9" Frosted 2-Layer Cake (Standard Flavors)</h3>
+                <p class="text-gray-600 mb-2">Each</p>
+                <p class="text-gray-700 mb-4">Available in classic flavors: Vanilla/Vanilla, Vanilla/Chocolate, Chocolate/Vanilla, Chocolate/Chocolate.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$65.00 each</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="cakes">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-2.webp" alt="9&quot; Frosted 2-Layer Cake (Custom)" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">9" Frosted 2-Layer Cake (Custom Flavors)</h3>
+                <p class="text-gray-600 mb-2">Each</p>
+                <p class="text-gray-700 mb-4">Specialty flavors like Confetti, Chocolate-Raspberry, Dulce de Leche, Red Velvet, Tiramisu, and more.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$75.00 each</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+            
+            
+            <div class="product-card bg-white rounded-xl shadow-md overflow-hidden" data-category="all">
+              <div class="h-64 overflow-hidden">
+                <img src="images/download-3.webp" alt="Emerald Sampler" class="w-full h-full object-cover">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-2">Emerald Sampler</h3>
+                <p class="text-gray-600 mb-2">Special Package</p>
+                <p class="text-gray-700 mb-4">1 dozen regular-sized Cranberry-Orange Scones and 1 dozen Smores Stuffed Chocolate Chip Cookies.</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-xl font-bold text-green-700">$65.00</span>
+                  <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition-colors">Order Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="mt-16 bg-emerald-100 rounded-xl p-8 text-center">
+            <h3 class="text-2xl font-bold text-green-800 mb-4 heading">Custom Request</h3>
+            <p class="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
+              Have a specific sweet request that's not listed? We're happy to work with you to create exactly what you need for your special occasion.
+            </p>
+            <div class="flex justify-center gap-4">
+              <a href="index.html#order" class="bg-green-700 hover:bg-green-800 text-white font-medium py-3 px-8 rounded-full transition-all duration-300">Place Order</a>
+              <a href="mailto:emeraldbakeryorders@gmail.com" class="bg-white hover:bg-gray-100 text-green-700 font-medium py-3 px-8 rounded-full border border-green-700 transition-all duration-300">Email Us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    
+    <footer class="bg-green-800 text-white py-12 mt-auto">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          
+          <div>
+            <div class="flex items-center mb-4">
+              <img alt="Emerald Bakery Logo" width="40" height="40" src="images/download-3.webp" class="w-10 h-10 object-contain bg-white rounded-full p-1" />
+              <h3 class="ml-2 text-xl font-bold heading">EMERALD BAKERY</h3>
+            </div>
+            <p class="text-emerald-100 mb-4">
+              A custom bakery serving the San Francisco Bay Area with handcrafted desserts for every occasion.
+            </p>
+          </div>
+          
+          
+          <div>
+            <h3 class="text-xl font-bold mb-4 heading">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="index.html" class="text-emerald-100 hover:text-white transition-colors">Home</a></li>
+              <li><a href="index.html#about" class="text-emerald-100 hover:text-white transition-colors">About</a></li>
+              <li><a href="index.html#specialties" class="text-emerald-100 hover:text-white transition-colors">Specialties</a></li>
+              <li><a href="products.html" class="text-emerald-100 hover:text-white transition-colors">Products</a></li>
+              <li><a href="index.html#order" class="text-emerald-100 hover:text-white transition-colors">Order</a></li>
+            </ul>
+          </div>
+          
+          
+          <div>
+            <h3 class="text-xl font-bold mb-4 heading">Contact Us</h3>
+            <p class="flex items-center mb-2">
+              <i class="fa-solid fa-envelope mr-3 text-emerald-200"></i>
+              <a href="mailto:emeraldbakeryorders@gmail.com" class="text-emerald-100 hover:text-white transition-colors">emeraldbakeryorders@gmail.com</a>
+            </p>
+            <p class="flex items-center mb-4">
+              <i class="fa-solid fa-location-dot mr-3 text-emerald-200"></i>
+              <span class="text-emerald-100">San Mateo County, California</span>
+            </p>
+            <div class="flex space-x-4 mt-4">
+              <a href="https:
+                <i class="fa-brands fa-instagram text-2xl"></i>
+              </a>
+              <a href="https:
+                <i class="fa-solid fa-link text-2xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-t border-emerald-600 pt-6 text-center">
+          <p class="text-emerald-100">© 2024 Emerald Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const closeMenuButton = document.getElementById('close-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+    });
+    
+    closeMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+    });
+    
+
+    const mobileNavLinks = mobileMenu.querySelectorAll('a');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+    
+
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const productCards = document.querySelectorAll('.product-card');
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        
+
+        button.classList.add('active');
+        
+        const category = button.dataset.category;
+        
+
+        productCards.forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

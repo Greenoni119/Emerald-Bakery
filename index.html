@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>Emerald Bakery</title>
+    <meta name="description" content="A San Mateo County local custom bakery specializing in custom cookies, cupcakes, pastries, and petite desserts for any occasion." />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+      .heading {
+        font-family: 'Playfair Display', serif;
+      }
+      .hero-section {
+        background-image: url('images/tasty.gif');
+        background-size: cover;
+        background-position: center;
+      }
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #166534;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .mobile-menu {
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+      }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+    </style>
+  </head>
+  
+<body class="overflow-x-hidden bg-emerald-50">
+  <div class="min-h-screen flex flex-col">
+    <header class="bg-white shadow-md py-4 px-6 sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+          <img alt="Emerald Bakery Logo" width="50" height="50" src="images/download-3.webp" class="w-12 h-12 md:w-14 md:h-14 object-contain" />
+          <h1 class="ml-3 text-xl md:text-3xl text-green-800 font-bold heading">EMERALD BAKERY</h1>
+        </div>
+        
+        <nav class="hidden md:block">
+          <ul class="flex gap-8 text-lg font-medium">
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="#">Home</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="#about">About</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="#specialties">Specialties</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="products.html">Products</a></li>
+            <li><a class="text-green-700 hover:text-green-900 nav-link" href="#order">Order</a></li>
+          </ul>
+        </nav>
+        
+        <button id="mobile-menu-button" class="md:hidden text-green-800 focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 h-full w-3/4 bg-white shadow-lg z-50 p-6">
+        <div class="flex justify-between items-center mb-8">
+          <div class="flex items-center">
+            <img alt="Emerald Bakery Logo" width="40" height="40" src="images/download-3.webp" class="w-10 h-10 object-contain" />
+            <h2 class="ml-2 text-lg text-green-800 font-bold heading">EMERALD BAKERY</h2>
+          </div>
+          <button id="close-menu-button" class="text-green-800 focus:outline-none">
+            <i class="fa-solid fa-xmark text-2xl"></i>
+          </button>
+        </div>
+        <nav>
+          <ul class="flex flex-col gap-6 text-lg font-medium">
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="#">Home</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="#about">About</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="#specialties">Specialties</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="products.html">Products</a></li>
+            <li><a class="text-green-700 hover:text-green-900 block py-2" href="#order">Order</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section h-[500px] md:h-[700px] flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="relative z-10 text-center p-8">
+          <div class="bg-white bg-opacity-90 rounded-lg p-8 md:p-12 shadow-xl">
+            <img alt="Emerald Bakery Logo" width="120" height="120" src="images/download-3.webp" class="w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 object-contain" />
+            <h1 class="text-4xl md:text-6xl text-green-800 font-bold mb-4 heading">Emerald Bakery</h1>
+            <p class="text-lg md:text-xl text-green-700 mb-8">Custom baked goods for every occasion</p>
+            <a href="#order" class="inline-block bg-green-700 hover:bg-green-800 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">Order Now</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="grid md:grid-cols-2 items-center gap-12">
+            <div>
+              <h2 class="text-4xl md:text-5xl text-green-800 font-bold mb-6 heading">About Us</h2>
+              <p class="text-lg leading-relaxed mb-6 text-gray-700">
+                Welcome to Emerald Bakery, a custom-order bakery serving the San Francisco Bay Area and South Bay. We specialize in pastries, custom-decorated cookies, and cakes, and are happy to cater your next gathering.
+              </p>
+              <p class="text-lg leading-relaxed mb-6 text-gray-700">
+                Our bakery accepts both small batch orders just to enjoy and large-batch orders for parties, office treats, teacher appreciation, and all your event needs. All our desserts are made with the best ingredients and great attention to detail.
+              </p>
+              <p class="text-lg leading-relaxed mb-6 text-gray-700">
+                We look forward to serving you!
+              </p>
+            </div>
+            <div class="bg-emerald-50 p-8 rounded-lg shadow-lg">
+              <h3 class="text-2xl text-green-800 font-semibold mb-4 heading">You May Have Seen Us At...</h3>
+              <ul class="mb-8 space-y-2">
+                <li class="flex items-center"><i class="fa-solid fa-location-dot text-green-700 mr-3"></i> REHREH Threads & Goods</li>
+                <li class="flex items-center"><i class="fa-solid fa-location-dot text-green-700 mr-3"></i> Portola Valley Town Picnic</li>
+                <li class="flex items-center"><i class="fa-solid fa-location-dot text-green-700 mr-3"></i> Portola Valley Arts Fest</li>
+                <li class="flex items-center"><i class="fa-solid fa-location-dot text-green-700 mr-3"></i> Woodside Day of the Horse</li>
+              </ul>
+              <h3 class="text-2xl text-green-800 font-semibold mb-4 heading">We Can Provide...</h3>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> Wedding Favors</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> Corporate Catering</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> Holiday Desserts</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> Birthday Cakes</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> School Event Catering</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> Afternoon Tea Spreads</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> Sports Themed Cookies</li>
+                <li class="flex items-center"><i class="fa-solid fa-check text-green-700 mr-3"></i> Gift Packages</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="specialties" class="py-20 bg-emerald-700">
+        <div class="container mx-auto px-6">
+          <h2 class="text-4xl md:text-5xl text-white font-bold mb-12 text-center heading">Our Specialties</h2>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+              <div class="h-56 overflow-hidden">
+                <img alt="Custom decorated cookies" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="images/download-3.webp" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-3">Custom Decorated Cookies</h3>
+                <p class="text-gray-700">
+                  We can provide custom designs for any theme, including holidays, sports events, wedding favors, baby showers, and more.
+                </p>
+                <a href="products.html" class="inline-block mt-4 text-green-700 font-medium hover:text-green-900">
+                  View Details <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+              <div class="h-56 overflow-hidden">
+                <img alt="Scones" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="images/download-1.webp" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-3">Cranberry-Orange Scones</h3>
+                <p class="text-gray-700">
+                  Our signature scones are a hit for corporate events, teacher appreciation, or just to enjoy with a cup of tea.
+                </p>
+                <a href="products.html" class="inline-block mt-4 text-green-700 font-medium hover:text-green-900">
+                  View Details <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+              <div class="h-56 overflow-hidden">
+                <img alt="Cupcakes and Cakes" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="images/download-2.webp" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-3">Cupcakes and Cakes</h3>
+                <p class="text-gray-700">
+                  Available in a wide array of flavors, including chocolate, vanilla, dulce de leche, tiramisu, confetti, and more!
+                </p>
+                <a href="products.html" class="inline-block mt-4 text-green-700 font-medium hover:text-green-900">
+                  View Details <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+              <div class="h-56 overflow-hidden">
+                <img alt="Custom Requests" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" src="images/download-4.webp" />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-3">Custom Requests</h3>
+                <p class="text-gray-700">
+                  Have a specific sweet request that's not listed? We're happy to work with you to create exactly what you need.
+                </p>
+                <a href="mailto:emeraldbakeryorders@gmail.com" class="inline-block mt-4 text-green-700 font-medium hover:text-green-900">
+                  Contact Us <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-emerald-100">
+        <div class="container mx-auto px-6 text-center">
+          <h2 class="text-3xl md:text-4xl text-green-800 font-bold mb-6 heading">See Our Full Product Catalog</h2>
+          <p class="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+            Browse our complete selection of custom cookies, scones, cupcakes, cakes and more with detailed descriptions and pricing.
+          </p>
+          <a href="products.html" class="inline-block bg-green-700 hover:bg-green-800 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+            View All Products
+          </a>
+        </div>
+      </section>
+
+      <section id="order" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+          <div class="max-w-4xl mx-auto text-center mb-12">
+            <h2 class="text-4xl md:text-5xl text-green-800 font-bold mb-6 heading">Ready to Order?</h2>
+            <p class="text-lg text-gray-700 mb-4">
+              We are excited to help make your next gathering special! Select your items below or email us at
+              <a class="text-green-700 font-medium hover:text-green-900" href="mailto:emeraldbakeryorders@gmail.com">emeraldbakeryorders@gmail.com</a>
+            </p>
+            <div id="cart-summary" class="flex items-center justify-center mt-4 mb-8">
+              <span id="cart-count" class="bg-green-700 text-white rounded-full w-8 h-8 flex items-center justify-center mr-2">0</span>
+              <span class="text-lg">Items in your cart</span>
+              <button id="view-cart-btn" class="ml-4 bg-green-700 hover:bg-green-800 text-white rounded-full px-4 py-2 flex items-center">
+                <i class="fa-solid fa-cart-shopping mr-2"></i>View Cart
+              </button>
+            </div>
+          </div>
+          
+          <div class="grid lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-1">
+              <div class="bg-emerald-50 rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-bold text-green-800 mb-4">Categories</h3>
+                <ul class="space-y-3">
+                  <li>
+                    <button class="category-btn w-full text-left py-2 px-4 rounded-lg bg-green-700 text-white" data-category="all">
+                      All Products
+                    </button>
+                  </li>
+                  <li>
+                    <button class="category-btn w-full text-left py-2 px-4 rounded-lg hover:bg-green-100" data-category="cookies">
+                      Custom Cookies
+                    </button>
+                  </li>
+                  <li>
+                    <button class="category-btn w-full text-left py-2 px-4 rounded-lg hover:bg-green-100" data-category="scones">
+                      Scones
+                    </button>
+                  </li>
+                  <li>
+                    <button class="category-btn w-full text-left py-2 px-4 rounded-lg hover:bg-green-100" data-category="cupcakes">
+                      Cupcakes
+                    </button>
+                  </li>
+                  <li>
+                    <button class="category-btn w-full text-left py-2 px-4 rounded-lg hover:bg-green-100" data-category="cakes">
+                      Cakes
+                    </button>
+                  </li>
+                  <li>
+                    <button class="category-btn w-full text-left py-2 px-4 rounded-lg hover:bg-green-100" data-category="packages">
+                      Special Packages
+                    </button>
+                  </li>
+                </ul>
+                
+                <div class="mt-8 p-4 bg-white rounded-lg">
+                  <h4 class="font-semibold text-green-800 mb-2">Need a custom order?</h4>
+                  <p class="text-sm text-gray-700 mb-4">Have something specific in mind that's not on our menu?</p>
+                  <a href="mailto:emeraldbakeryorders@gmail.com" class="text-green-700 hover:text-green-900 text-sm flex items-center">
+                    <i class="fa-solid fa-envelope mr-2"></i>Contact us directly
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="lg:col-span-2">
+              <div class="bg-emerald-50 rounded-xl shadow-lg p-6">
+                <div id="products-grid" class="grid md:grid-cols-2 gap-4">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+          <div class="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white p-4 border-b flex justify-between items-center">
+              <h3 class="text-2xl font-bold text-green-800">Your Cart</h3>
+              <button id="close-cart-btn" class="text-gray-500 hover:text-gray-700">
+                <i class="fa-solid fa-xmark text-xl"></i>
+              </button>
+            </div>
+            
+            <div id="cart-items" class="p-6">
+            </div>
+            
+            <div class="sticky bottom-0 bg-white p-4 border-t">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-lg font-medium">Total:</span>
+                <span id="cart-total" class="text-xl font-bold text-green-800">$0.00</span>
+              </div>
+              
+              <form id="checkout-form" action="https://submit.jotform.com/submit/242531013871145" method="POST" name="form_242531013871145">
+                <input type="hidden" name="formID" value="242531013871145" />
+                <input type="hidden" name="order_details" id="form-order-details" value="" />
+                <input type="hidden" name="order_total" id="form-order-total" value="" />
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
+                    <input type="text" id="full-name" name="q2_fullName2[first]" placeholder="First Name" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-2" required>
+                    <input type="text" id="last-name" name="q2_fullName2[last]" placeholder="Last Name" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                    <input type="email" id="email" name="q3_email3" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone*</label>
+                    <input type="tel" id="phone" name="q5_contactNumber[full]" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="(000) 000-0000" required>
+                  </div>
+                  <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Desired Delivery Date*</label>
+                    <input type="date" id="delivery-date" name="q45_desiredDelivery[month]" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                  </div>
+                </div>
+                
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Occasion/Location*</label>
+                  <input type="text" id="occasion" name="q47_occasionlocation" class="w-full px-3 py-2 border border-gray-300 rounded-md" required>
+                </div>
+                
+                <div class="mb-4">
+                  <label class="block text-sm font-medium text-gray-700 mb-1">Special Instructions</label>
+                  <textarea id="special-instructions" name="q14_specialInstructionsnotes" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md"></textarea>
+                </div>
+                
+                <div id="jotform-products-container" style="display: none;">
+                </div>
+                
+                <div class="flex justify-end">
+                  <button type="submit" id="submit-order" class="bg-green-700 hover:bg-green-800 text-white font-medium py-2 px-6 rounded-lg">
+                    Submit Order
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+          <div class="bg-white rounded-xl max-w-md w-full p-8 text-center">
+            <div class="text-green-600 mb-4">
+              <i class="fa-solid fa-circle-check text-5xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-green-800 mb-4">Order Submitted!</h3>
+            <p class="text-gray-700 mb-6">
+              Thank you for your order. We've received your request and will contact you shortly to confirm details and arrange payment.
+            </p>
+            <button id="close-confirmation-btn" class="bg-green-700 hover:bg-green-800 text-white font-medium py-2 px-6 rounded-lg">
+              Close
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-green-800 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <img alt="Emerald Bakery Logo" width="40" height="40" src="images/download-3.webp" class="w-10 h-10 object-contain bg-white rounded-full p-1" />
+              <h3 class="ml-2 text-xl font-bold heading">EMERALD BAKERY</h3>
+            </div>
+            <p class="text-emerald-100 mb-4">
+              A custom bakery serving the San Francisco Bay Area with handcrafted desserts for every occasion.
+            </p>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-4 heading">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-emerald-100 hover:text-white transition-colors">Home</a></li>
+              <li><a href="#about" class="text-emerald-100 hover:text-white transition-colors">About</a></li>
+              <li><a href="#specialties" class="text-emerald-100 hover:text-white transition-colors">Specialties</a></li>
+              <li><a href="products.html" class="text-emerald-100 hover:text-white transition-colors">Products</a></li>
+              <li><a href="#order" class="text-emerald-100 hover:text-white transition-colors">Order</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-bold mb-4 heading">Contact Us</h3>
+            <p class="flex items-center mb-2">
+              <i class="fa-solid fa-envelope mr-3 text-emerald-200"></i>
+              <a href="mailto:emeraldbakeryorders@gmail.com" class="text-emerald-100 hover:text-white transition-colors">emeraldbakeryorders@gmail.com</a>
+            </p>
+            <p class="flex items-center mb-4">
+              <i class="fa-solid fa-location-dot mr-3 text-emerald-200"></i>
+              <span class="text-emerald-100">San Mateo County, California</span>
+            </p>
+            <div class="flex space-x-4 mt-4">
+              <a href="https://instagram.com/emeraldbakeryca" class="text-white hover:text-emerald-200 transition-colors">
+                <i class="fa-brands fa-instagram text-2xl"></i>
+              </a>
+              <a href="https://linktr.ee/emeraldbakery" class="text-white hover:text-emerald-200 transition-colors">
+                <i class="fa-solid fa-link text-2xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-t border-emerald-600 pt-6 text-center">
+          <p class="text-emerald-100">© 2024 Emerald Bakery. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
