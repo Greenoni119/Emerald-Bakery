@@ -263,9 +263,10 @@
            
           </div>
           
-          <div class="grid lg:grid-cols-3 gap-12">
-            <div class="lg:col-span-1">
-              <div class="bg-emerald-50 rounded-xl shadow-lg p-6">
+          <div class="flex flex-col md:flex-row gap-8">
+            <!-- Fixed categories sidebar -->
+            <div id="categories-container" class="w-full md:w-1/4">
+              <div class="sticky bg-emerald-50 rounded-xl shadow-lg p-6" style="top: 100px;">
                 <h3 class="text-xl font-bold text-green-800 mb-4">Categories</h3>
                 <ul class="space-y-3">
                   <li>
@@ -310,7 +311,8 @@
               </div>
             </div>
             
-            <div class="lg:col-span-2">
+            <!-- Products grid -->
+            <div class="w-full md:w-3/4">
               <div class="bg-emerald-50 rounded-xl shadow-lg p-6">
                 <div id="products-grid" class="grid md:grid-cols-2 gap-4">
                 </div>

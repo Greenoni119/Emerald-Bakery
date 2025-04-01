@@ -494,6 +494,14 @@ document.addEventListener('DOMContentLoaded', () => {
     cart = [];
     updateCartDisplay();
   }
+
+  // Update sticky categories container position
+  const categoriesContainer = document.getElementById('categories-container');
+  if (categoriesContainer) {
+    const stickyContainer = categoriesContainer.querySelector('div');
+    const headerHeight = document.querySelector('header').offsetHeight;
+    stickyContainer.style.top = (headerHeight + 4) + 'px';
+  }
 });
 
 closeConfirmationBtn.addEventListener('click', () => {

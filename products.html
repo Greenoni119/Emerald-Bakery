@@ -138,7 +138,7 @@
       <section class="py-12 bg-white">
         <div class="container mx-auto px-6">
           
-          <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+          <div id="categories-container" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 sticky bg-white py-4 shadow-sm rounded-lg" style="top: 84px; z-index: 10">
             <button class="tab-button active px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="all">All Products</button>
             <button class="tab-button px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="cookies">Cookies</button>
             <button class="tab-button px-4 py-2 rounded-full bg-emerald-100 text-green-800 font-medium" data-category="scones">Scones</button>
@@ -506,6 +506,11 @@
     
     const tabButtons = document.querySelectorAll('.tab-button');
     const productCards = document.querySelectorAll('.product-card');
+    
+    // Set up sticky categories position
+    const categoriesContainer = document.getElementById('categories-container');
+    const headerHeight = document.querySelector('header').offsetHeight;
+    categoriesContainer.style.top = headerHeight + 'px';
     
     tabButtons.forEach(button => {
       button.addEventListener('click', () => {
